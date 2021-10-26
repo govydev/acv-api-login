@@ -36,7 +36,24 @@ class EditorialController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'telefono' => 'required|integer|max:255',
+            'contacto' => 'required|string|max:255',
+            'direccion' => 'required|string|max:255',
+        ]);
 
+        $user = Editorial::create([
+            'nombre' => $validatedData['nombre'],
+            'telefono' => $validatedData['telefono'],
+            'contacto' => $validatedData['contacto'],
+            'direccion' => $validatedData['direccion'],
+        ]);
+
+        return response()->json([
+            'message' => 'Create Succesfull',
+            'status' => 200,
+        ], 200);
     }
 
     /**
@@ -71,7 +88,16 @@ class EditorialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $editorial = Editorial::findOrFail($id);
+        $editorial->nombre = $request->nombre;
+        $editorial->telefono = $request->telefono;
+        $editorial->contacto = $request->contacto;
+        $editorial->direccion = $request->direccion;
+        $editorial->update();
+        return response()->json([
+            'message' => 'Update Successfull',
+            'status' => 200,
+        ], 200);
     }
 
     /**
@@ -82,6 +108,10 @@ class EditorialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $editorial = Editorial::destroy($id);
+        return response()->json([
+            'message' => 'Remove Successfull',
+            'status' => 200,
+        ], 200);
     }
 }
