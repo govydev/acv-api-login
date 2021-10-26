@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EditorialController;
+use App\Http\Controllers\TemaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,9 @@ Route::get('/editoriales/{id}', [EditorialController::class, 'show']);
 Route::post('/editoriales', [EditorialController::class, 'store']);
 Route::put('/editoriales/{editorial}', [EditorialController::class, 'update']);
 Route::delete('/editoriales/{id}', [EditorialController::class, 'destroy']);
+
+Route::get('/temas', [TemaController::class, 'index']);
+Route::get('/temas/{id}', [TemaController::class, 'show']);
+Route::post('/temas', [TemaController::class, 'store']);
+Route::put('/temas/{tema}', [TemaController::class, 'update']);
+Route::delete('/temas/{id}', [TemaController::class, 'destroy']);

@@ -12,4 +12,12 @@ class Tema extends Model
     public function tratarTe(){
         return $this->hasMany(Tratar::class, 'id'); // un tema tiene muchos tratar
     }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'nombre',
+    ];
 }
