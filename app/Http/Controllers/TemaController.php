@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Editorial;
+use App\Models\Tema;
 use Illuminate\Http\Request;
 
-class EditorialController extends Controller
+class TemaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class EditorialController extends Controller
      */
     public function index()
     {
-        $editorial = Editorial::all();
-        return $editorial;
+        $tema = Tema::all();
+        return $tema;
     }
 
     /**
@@ -38,16 +38,10 @@ class EditorialController extends Controller
     {
         $validatedData = $request->validate([
             'nombre' => 'required|string|max:255',
-            'telefono' => 'required|integer',
-            'contacto' => 'required|string|max:255',
-            'direccion' => 'required|string|max:255',
         ]);
 
-        $editorial = Editorial::create([
+        $tema = Tema::create([
             'nombre' => $validatedData['nombre'],
-            'telefono' => $validatedData['telefono'],
-            'contacto' => $validatedData['contacto'],
-            'direccion' => $validatedData['direccion'],
         ]);
 
         return response()->json([
@@ -64,8 +58,8 @@ class EditorialController extends Controller
      */
     public function show($id)
     {
-        $editorial = Editorial::findOrFail($id);
-        return $editorial;
+        $tema = Tema::findOrFail($id);
+        return $tema;
     }
 
     /**
@@ -88,12 +82,9 @@ class EditorialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $editorial = Editorial::findOrFail($id);
-        $editorial->nombre = $request->nombre;
-        $editorial->telefono = $request->telefono;
-        $editorial->contacto = $request->contacto;
-        $editorial->direccion = $request->direccion;
-        $editorial->update();
+        $tema = Tema::findOrFail($id);
+        $tema->nombre = $request->nombre;
+        $tema->update();
         return response()->json([
             'message' => 'Update Successfull',
             'status' => 200,
@@ -108,7 +99,7 @@ class EditorialController extends Controller
      */
     public function destroy($id)
     {
-        $editorial = Editorial::destroy($id);
+        $tema = Tema::destroy($id);
         return response()->json([
             'message' => 'Remove Successfull',
             'status' => 200,
