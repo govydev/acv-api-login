@@ -38,7 +38,7 @@ class EditorialController extends Controller
     {
         $validatedData = $request->validate([
             'nombre' => 'required|string|max:255',
-            'telefono' => 'required|integer|max:255',
+            'telefono' => 'required|integer',
             'contacto' => 'required|string|max:255',
             'direccion' => 'required|string|max:255',
         ]);

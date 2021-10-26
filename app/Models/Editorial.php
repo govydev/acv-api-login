@@ -12,4 +12,16 @@ class Editorial extends Model
     public function librosEd(){
         return $this->hasMany(Libro::class, 'id');
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'nombre',
+        'telefono',
+        'contacto',
+        'direccion',
+    ];
 }
