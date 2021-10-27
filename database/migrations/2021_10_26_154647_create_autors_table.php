@@ -18,7 +18,7 @@ class CreateAutorsTable extends Migration
             $table->string('nombre');
             $table->string('apellido');
             $table->string('nacionalidad');
-            $table->string('centro de estudios');
+            $table->string('centroEstudios');
             $table->text('observaciones');
             $table->timestamps();
         });

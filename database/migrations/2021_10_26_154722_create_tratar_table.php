@@ -13,7 +13,7 @@ class CreateTratarTable extends Migration
      */
     public function up()
     {
-        Schema::create('tratar', function (Blueprint $table) {
+        Schema::create('tratars', function (Blueprint $table) {
             $table->id();
             $table->foreignId('idlibro')
                     ->nullable()
@@ -36,6 +36,6 @@ class CreateTratarTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tratar');
+        Schema::dropIfExists('tratars');
     }
 }

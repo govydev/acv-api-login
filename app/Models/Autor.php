@@ -12,4 +12,17 @@ class Autor extends Model
     public function librosAu(){
         return $this->hasMany(Libro::class, 'id');
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'nombre',
+        'apellido',
+        'nacionalidad',
+        'centro de estudios',
+        'observaciones',
+    ];
 }

@@ -10,7 +10,7 @@ class Tema extends Model
     use HasFactory;
 
     public function tratarTe(){
-        return $this->hasMany(Tratar::class, 'id'); // un tema tiene muchos tratar
+        return $this->belongsToMany(Tratar::class, 'tratar'); // relacion muchos a muchos inversa
     }
     /**
      * The attributes that are mass assignable.

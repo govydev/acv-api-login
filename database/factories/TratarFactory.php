@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Tema;
+use App\Models\Tratar;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TemaFactory extends Factory
+class TratarFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Tema::class;
+    protected $model = Tratar::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,8 @@ class TemaFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->sentence(2),
+            'idlibro' => $this->faker->numberBetween(1, 10),
+            'idtema' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

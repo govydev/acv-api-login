@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tema;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,8 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(1)->create();
         \App\Models\Tema::factory(10)->create();
         \App\Models\Editorial::factory(10)->create();
+        \App\Models\Autor::factory(10)->create();
+        \App\Models\Libro::factory(10)->create();
+        \App\Models\Tratar::factory(10)->create();
     }
 }

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AutorController;
 use App\Http\Controllers\EditorialController;
+use App\Http\Controllers\LibroController;
 use App\Http\Controllers\TemaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -32,6 +34,7 @@ Route::post('/usuarios', [UserController::class, 'store']);
 Route::put('/usuarios/{user}', [UserController::class, 'update']);
 Route::delete('/usuarios/{id}', [UserController::class, 'destroy']);
 
+
 Route::get('/editoriales', [EditorialController::class, 'index']);
 Route::get('/editoriales/{id}', [EditorialController::class, 'show']);
 Route::post('/editoriales', [EditorialController::class, 'store']);
@@ -43,3 +46,15 @@ Route::get('/temas/{id}', [TemaController::class, 'show']);
 Route::post('/temas', [TemaController::class, 'store']);
 Route::put('/temas/{tema}', [TemaController::class, 'update']);
 Route::delete('/temas/{id}', [TemaController::class, 'destroy']);
+
+Route::get('/autores', [AutorController::class, 'index']);
+Route::get('/autores/{id}', [AutorController::class, 'show']);
+Route::post('/autores', [AutorController::class, 'store']);
+Route::put('/autores/{tema}', [AutorController::class, 'update']);
+Route::delete('/autores/{id}', [AutorController::class, 'destroy']);
+
+Route::get('/libros', [LibroController::class, 'index']);
+Route::get('/libros/{id}', [LibroController::class, 'show']);
+Route::post('/libros', [LibroController::class, 'store']);
+Route::put('/libros/{libro}', [LibroController::class, 'update']);
+Route::delete('/libros/{id}', [LibroController::class, 'destroy']);
